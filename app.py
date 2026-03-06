@@ -1,17 +1,52 @@
 from flask import Flask, render_template, request, redirect
+import urllib.parse
+import re
 
 app = Flask(__name__)
 
+SEU_WHATSAPP = "5517982073231"
+
+
 @app.route("/", methods=["GET", "POST"])
 def home():
+
     if request.method == "POST":
+
         nome = request.form.get("nome")
-        whatsapp = request.form.get("whatsapp")
-        mensagem = f"Olá, quero garantir minha declaração de Imposto de Renda 2026 pelo valor promocional de R$80. Nome: {nome}"
-        url = f"https://wa.me/{whatsapp}?text={mensagem.replace(' ', '%20')}"
+        whatsapp_cliente = request.form.get("whatsapp")
+
+        if not nome or not whatsapp_cliente:
+            return redirect("/")
+
+        # limpa caracteres do número
+        whatsapp_cliente = re.sub(r"\D", "", whatsapp_cliente)
+
+        # salva lead
+        with open("leads.txt", "a", encoding="utf-8") as f:
+            f.write(f"{nome} - {whatsapp_cliente}\n")
+
+        mensagem = f"""
+Olá Douglas, quero fazer minha declaração de Imposto de Renda 2026.
+
+Nome: {nome}
+WhatsApp do cliente: {whatsapp_cliente}
+
+Gostaria de receber mais informações.
+"""
+
+        mensagem_codificada = urllib.parse.quote(mensagem)
+
+        url = f"https://wa.me/{SEU_WHATSAPP}?text={mensagem_codificada}"
+
         return redirect(url)
+
     return render_template("index.html")
 
+
+@app.route("/health")
+def health():
+    return "OK"
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
-    
+    app.run()
