@@ -1,238 +1,58 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IRPF 2026 | Douglas Oliveira - Consultoria Especializada</title>
+<section id="precos" style="padding: 60px 20px; background: #f4f7f9; text-align: center;">
+    <h2 style="margin-bottom: 10px;">Planos e Investimento</h2>
+    <p style="margin-bottom: 40px; color: #666;">Escolha a opção que melhor se adapta à sua realidade fiscal</p>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
-    <meta name="description" content="Evite a malha fina. Declaração de IRPF 2026 com Douglas Oliveira. Especialista em investidores e autônomos.">
-    <meta property="og:title" content="Declaração Imposto de Renda 2026 | Douglas Oliveira">
-    <meta property="og:description" content="Segurança fiscal e máxima restituição. Atendimento digital para todo o Brasil.">
-    <meta property="og:image" content="https://douglasoliveira.onrender.com/static/images/preview-irpf.png">
-    <meta property="og:url" content="https://douglasoliveira.onrender.com">
-    <meta property="og:type" content="website">
-
-    <style>
-        /* Adições de estilo rápidas para modernizar o visual */
-        :root {
-            --primary-color: #0056b3;
-            --accent-color: #28a745;
-            --dark-bg: #1a1a1a;
-            --light-gray: #f8f9fa;
-        }
-
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    <div class="grid-precos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto;">
         
-        .banner {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/static/images/fundo-escritorio.jpg');
-            background-size: cover;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
-
-        .cta-box {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            max-width: 800px;
-            margin: 20px auto;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .countdown-container {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #ffd700;
-            margin-top: 20px;
-        }
-
-        .card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-radius: 12px;
-            padding: 25px;
-            background: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .badge-promo {
-            background: var(--accent-color);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 50px;
-            display: inline-block;
-            margin-bottom: 15px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        form input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-
-        .btn-whatsapp {
-            background-color: #25d366;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1.1rem;
-        }
-    </style>
-</head>
-<body>
-
-<header class="banner">
-    <div class="cta-box">
-        <div class="badge-promo">Oportunidade IRPF 2026</div>
-        <h1>Douglas Oliveira</h1>
-        <h2 style="color: #00d4ff;">Consultoria em Imposto de Renda</h2>
-        
-        <p class="subtitulo">
-            Especialista em conformidade fiscal para <strong>CLT, Autônomos e Investidores</strong>. 
-            Garantia de análise técnica para evitar a malha fina e otimizar sua restituição.
-        </p>
-
-        <div class="countdown-container">
-            ⏳ O prazo encerra em: <span id="countdown">Carregando...</span>
-        </div>
-
-        <p style="margin: 20px 0; font-size: 1.1rem;">
-            Valor promocional: <strong>R$ 45,00</strong> 
-            <br><small>(Para agendamentos até 15 de abril de 2026)</small>
-        </p>
-
-        <a href="#formulario" class="btn-whatsapp" style="text-decoration: none; display: inline-block; width: auto;">
-            <i class="fa-brands fa-whatsapp"></i> Agendar minha declaração agora
-        </a>
-    </div>
-</header>
-
-<section class="servicos" style="padding: 60px 20px; background: var(--light-gray);">
-    <h2 style="text-align: center; margin-bottom: 40px;">Soluções Especializadas</h2>
-    <div class="grid-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto;">
-        
-        <div class="card">
-            <i class="fa-solid fa-chart-pie" style="font-size: 2rem; color: var(--primary-color);"></i>
-            <h3>Investidores (B3 & Cripto)</h3>
-            <p>Cálculo de preço médio, ganhos de capital e relatórios de criptoativos de acordo com a IN 1.888.</p>
-        </div>
-
-        <div class="card">
-            <i class="fa-solid fa-user-doctor" style="font-size: 2rem; color: var(--primary-color);"></i>
-            <h3>Profissionais Liberais</h3>
-            <p>Escrituração de Livro Caixa para reduzir a base de cálculo do imposto legalmente.</p>
-        </div>
-
-        <div class="card">
-            <i class="fa-solid fa-rotate" style="font-size: 2rem; color: var(--primary-color);"></i>
-            <h3>Retificação</h3>
-            <p>Sua declaração travou? Corrigimos pendências de anos anteriores junto à Receita Federal.</p>
-        </div>
-    </div>
-</section>
-
-<section class="aviso" style="padding: 60px 20px; max-width: 900px; margin: 0 auto;">
-    <h2 style="color: #d9534f;"><i class="fa-solid fa-triangle-exclamation"></i> Quem é obrigado a declarar em 2026?</h2>
-    <div style="background: white; padding: 25px; border-left: 5px solid #d9534f; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-        <ul style="line-height: 1.8;">
-            <li>Rendimentos tributáveis acima de <strong>R$ 35.584,00</strong>;</li>
-            <li>Rendimentos isentos/não tributáveis acima de <strong>R$ 200.000,00</strong>;</li>
-            <li>Posse de bens (casa, carro, terra) acima de <strong>R$ 800.000,00</strong>;</li>
-            <li>Operações em Bolsa de Valores acima de <strong>R$ 40.000,00</strong>;</li>
-            <li>Atividade rural com receita bruta superior a <strong>R$ 177.920,00</strong>.</li>
-        </ul>
-    </div>
-</section>
-
-<section id="formulario" style="padding: 60px 20px; background: #e9ecef; text-align: center;">
-    <h2>Solicite seu Atendimento</h2>
-    <p>Preencha abaixo para ser redirecionado ao atendimento via WhatsApp.</p>
-    
-    <div style="max-width: 400px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px;">
-        <form id="formWhatsapp">
-            <input type="text" id="nome" placeholder="Seu Nome Completo" required>
-            <input type="tel" id="whatsapp" placeholder="WhatsApp (DDD + Número)" required>
-            <select id="tipoServico" style="width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #ddd;">
-                <option value="Declaracao Simples">Declaração Simples</option>
-                <option value="Investidor">Investidor (Ações/Cripto)</option>
-                <option value="Autônomo">Autônomo (Livro Caixa)</option>
-                <option value="Retificadora">Retificação de Anos Anteriores</option>
-            </select>
-            <button type="submit" class="btn-whatsapp">
-                <i class="fa-brands fa-whatsapp"></i> Iniciar Consultoria
+        <div class="card-preco" style="background: white; padding: 30px; border-radius: 15px; border-top: 5px solid #28a745; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s;">
+            <i class="fa-solid fa-leaf" style="font-size: 2.5rem; color: #28a745;"></i>
+            <h3 style="margin: 15px 0;">Declaração Simples</h3>
+            <div style="font-size: 2.2rem; font-weight: 800; color: #333; margin-bottom: 10px;">R$ 45</div>
+            <p style="color: #666; font-size: 0.9rem; min-height: 60px;">Ideal para quem possui apenas salários, aposentadoria ou rendimentos simples.</p>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            <button onclick="enviarWhats('Simples', 45)" class="btn-whatsapp" style="padding: 12px; font-size: 1rem;">
+                Contratar Simples
             </button>
-        </form>
+        </div>
+
+        <div class="card-preco" style="background: white; padding: 30px; border-radius: 15px; border-top: 5px solid #0056b3; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transform: scale(1.05); position: relative;">
+            <span style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #0056b3; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">MAIS PROCURADO</span>
+            <i class="fa-solid fa-chart-line" style="font-size: 2.5rem; color: #0056b3;"></i>
+            <h3 style="margin: 15px 0;">Completa / Investidor</h3>
+            <div style="font-size: 2.2rem; font-weight: 800; color: #333; margin-bottom: 10px;">R$ 100</div>
+            <p style="color: #666; font-size: 0.9rem; min-height: 60px;">Ações, FIIs, Cripto, Imóveis, Exterior e ganhos de capital detalhados.</p>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            <button onclick="enviarWhats('Completa/Investimentos', 100)" class="btn-whatsapp" style="padding: 12px; font-size: 1rem; background-color: #0056b3;">
+                Contratar Completa
+            </button>
+        </div>
+
+        <div class="card-preco" style="background: white; padding: 30px; border-radius: 15px; border-top: 5px solid #ffc107; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s;">
+            <i class="fa-solid fa-briefcase" style="font-size: 2.5rem; color: #ffc107;"></i>
+            <h3 style="margin: 15px 0;">Declaração MEI</h3>
+            <div style="font-size: 2.2rem; font-weight: 800; color: #333; margin-bottom: 10px;">R$ 150</div>
+            <p style="color: #666; font-size: 0.9rem; min-height: 60px;">Faturamento anual, controle de funcionários e regularização da empresa.</p>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            <button onclick="enviarWhats('MEI', 150)" class="btn-whatsapp" style="padding: 12px; font-size: 1rem; background-color: #333;">
+                Contratar MEI
+            </button>
+        </div>
+
     </div>
 </section>
-
-<footer style="background: var(--dark-bg); color: white; padding: 40px 20px; text-align: center;">
-    <div style="margin-bottom: 20px;">
-        <i class="fa-solid fa-shield-halved"></i> Seus dados estão protegidos pela LGPD.
-    </div>
-    <div class="copyright">
-        &copy; 2026 Douglas Oliveira - Consultoria Tributária. Todos os direitos reservados.
-    </div>
-</footer>
 
 <script>
-    // Contador Regressivo Atualizado
-    const countDownDate = new Date("May 29, 2026 23:59:59").getTime();
-    
-    const x = setInterval(function() {
-        const now = new Date().getTime();
-        const distance = countDownDate - now;
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("countdown").innerHTML = "PRAZO ENCERRADO";
-        }
-    }, 1000);
-
-    // Lógica do Formulário para WhatsApp
-    document.getElementById('formWhatsapp').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const nome = document.getElementById('nome').value;
-        const fone = document.getElementById('whatsapp').value;
-        const servico = document.getElementById('tipoServico').value;
-        
-        const mensagem = `Olá Douglas! Meu nome é ${nome}. Gostaria de agendar minha declaração de IRPF 2026 (${servico}).`;
-        const link = `https://wa.me/55SEUNUMERO?text=${encodeURIComponent(mensagem)}`; // SUBSTITUA SEUNUMERO pelo seu número real
-        
+    function enviarWhats(plano, preco) {
+        const numero = "55SEUNUMERO"; // COLOQUE SEU NÚMERO AQUI (Ex: 5511999999999)
+        const mensagem = `Olá Douglas! Vi seu site e gostaria de contratar a *Declaração ${plano}* (Valor: R$ ${preco},00). Como podemos proceder?`;
+        const link = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
         window.open(link, '_blank');
-    });
+    }
 </script>
 
-</body>
-</html>
+<style>
+    /* Pequeno ajuste para os cards no celular */
+    @media (max-width: 768px) {
+        .card-preco { transform: scale(1) !important; margin-bottom: 20px; }
+    }
+</style>
