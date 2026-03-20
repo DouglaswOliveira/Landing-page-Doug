@@ -1,94 +1,235 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Douglas Oliveira | IRPF 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <title>Declaração Imposto de Renda 2026 | Douglas Oliveira</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #00d4ff; --secondary: #6e00ff; --dark-bg: #050505;
-            --glass: rgba(255, 255, 255, 0.03); --border: rgba(255, 255, 255, 0.1);
-        }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--dark-bg); color: #fff; line-height: 1.6; text-align: center; }
-        header { padding: 80px 20px; background: radial-gradient(circle at 50% -20%, var(--secondary), transparent 50%); }
-        .perfil-img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--primary); margin-bottom: 20px; object-fit: cover; }
-        .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 40px 20px; }
-        .card { background: var(--glass); border: 1px solid var(--border); padding: 30px; border-radius: 20px; width: 300px; backdrop-filter: blur(10px); }
-        .price { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin: 15px 0; }
-        .form-section { max-width: 500px; margin: 50px auto; padding: 40px; background: var(--glass); border-radius: 30px; border: 1px solid var(--border); }
-        input, select, button { width: 100%; padding: 15px; margin-top: 15px; border-radius: 10px; border: 1px solid var(--border); }
-        input { background: #000; color: #fff; }
-        button { background: linear-gradient(90deg, var(--primary), var(--secondary)); color: #fff; font-weight: 800; cursor: pointer; border: none; }
-        footer { padding: 40px; color: #555; font-size: 0.8rem; }
-    </style>
+
+    <meta property="og:title" content="Declaração Imposto de Renda 2026">
+    <meta property="og:description" content="Consultoria especializada em IRPF. Segurança, conformidade fiscal e máxima restituição.">
+    <meta property="og:image" content="https://douglasoliveira.onrender.com/static/images/preview-irpf.png">
+    <meta property="og:url" content="https://douglasoliveira.onrender.com">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Declaração Imposto de Renda 2026">
+    <meta name="twitter:description" content="Consultoria especializada em IRPF com atendimento profissional.">
+    <meta name="twitter:image" content="https://douglasoliveira.onrender.com/static/images/preview-irpf.png">
+
 </head>
+
 <body>
 
-<header>
-    <img src="static/images/sua_foto.jpg" alt="Douglas Oliveira" class="perfil-img">
-    <h1>Douglas Oliveira</h1>
-    <p>Especialista em Imposto de Renda 2026</p>
-</header>
+    <!-- Banner Superior -->
+    <div class="fundo-banner"></div>
+    <header class="banner">
+        <div class="overlay">
+            <div class="perfil"></div>
+            <h1>Douglas Oliveira – Consultoria em Imposto de Renda 2026</h1>
+            <h2>Segurança Fiscal e Máxima Restituição</h2>
 
-<section class="card-container">
-    <div class="card">
-        <h3>Simples</h3>
-        <div class="price">R$ 45</div>
-        <p>Salários e Aposentadorias</p>
-    </div>
-    <div class="card" style="border-color: var(--primary);">
-        <h3>Completa</h3>
-        <div class="price">R$ 100</div>
-        <p>Investidores e Bens</p>
-    </div>
-    <div class="card">
-        <h3>MEI</h3>
-        <div class="price">R$ 150</div>
-        <p>DASN-SIMEI + IRPF</p>
-    </div>
-</section>
+            <p class="subtitulo">
+                Serviço especializado na elaboração e revisão da Declaração de Imposto de Renda Pessoa Física (IRPF).
+                Atendimento para trabalhadores CLT, profissionais autônomos, investidores e também para pessoas que
+                desejam declarar mesmo sem obrigatoriedade legal.
+            </p>
 
-<div class="form-section">
-    <h2>Solicitar Informações</h2>
-    <form id="irpfForm">
-        <input type="text" id="nome" value="Douglas Wesley Alves de Oliveira" readonly>
-        <input type="text" id="whatsapp" value="17982073231" readonly>
-        <select id="plano">
-            <option value="Simples">Declaração Simples</option>
-            <option value="Completa">Declaração Completa</option>
-            <option value="MEI">Declaração MEI</option>
-        </select>
-        <button type="submit"><i class="fa-brands fa-whatsapp"></i> ENVIAR PARA O WHATSAPP</button>
-    </form>
-</div>
+            <p class="promocao">
+                Aproveite! Declaração por apenas <strong>R$ 45,00</strong> até <strong>15 de abril de 2026</strong>.
+            </p>
 
-<footer>
-    <p>&copy; 2026 Douglas Oliveira | São José do Rio Preto - SP</p>
-</footer>
+            <p class="periodo">
+                Período de atendimento da declaração 2026:
+                <strong>23 de março a 29 de maio</strong>
+            </p>
 
-<script>
-    document.getElementById('irpfForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Dados que você solicitou
-        const nome = "Douglas Wesley Alves de Oliveira";
-        const whatsCliente = "17982073231";
-        const plano = document.getElementById('plano').value;
-        const meuWhats = "5517982073231"; // Seu número para receber a mensagem
+            <a href="#formulario" class="btn-banner">
+                <i class="fa-solid fa-paper-plane"></i> Falar com especialista
+            </a>
 
-        // Montagem da mensagem com quebras de linha (%0A)
-        const mensagem = `Olá Douglas, quero fazer minha declaração de Imposto de Renda 2026.%0A%0A` +
-                         `*Nome:* ${nome}%0A` +
-                         `*WhatsApp do cliente:* ${whatsCliente}%0A` +
-                         `*Serviço:* ${plano}%0A%0A` +
-                         `Gostaria de receber mais informações.`;
+            <span class="garantia">
+                Declaração revisada com critérios técnicos e conformidade com as normas da Receita Federal
+            </span>
 
-        const link = `https://wa.me/${meuWhats}?text=${mensagem}`;
-        window.open(link, '_blank');
-    });
-</script>
+            <div class="contador">
+                Prazo final para entrega:
+                <span id="countdown"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Serviços e Pacotes -->
+    <section class="servicos">
+        <h2>Serviços e Valores</h2>
+
+        <div class="grid-cards">
+
+            <div class="card">
+                <i class="fa-solid fa-file"></i>
+                <h3>R$45 – Declaração Simples</h3>
+                <p>Apenas salários, aposentadoria ou rendimentos simples.</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>R$100 – Declaração Completa / com Investimentos</h3>
+                <p>Inclui ações, fundos, FIIs, criptomoedas, imóveis e outros bens.</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-briefcase"></i>
+                <h3>R$150 – Declaração MEI</h3>
+                <p>Para microempreendedores individuais, incluindo faturamento anual e funcionários, se houver.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="diferenciais">
+        <h2>Diferenciais do serviço</h2>
+
+        <div class="grid-cards">
+
+            <div class="card">
+                <i class="fa-solid fa-user-check"></i>
+                <h3>Análise Técnica</h3>
+                <p>Verificação detalhada das informações para evitar inconsistências fiscais.</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Segurança de Dados</h3>
+                <p>Sigilo e proteção das informações financeiras do cliente.</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-list-check"></i>
+                <h3>Checklist Organizado</h3>
+                <p>Lista completa de documentos para facilitar o envio.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Passo a passo -->
+    <section class="passo-passo">
+        <h2>Como funciona o atendimento</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-step">
+                <span class="step-num">1</span>
+                <i class="fa-solid fa-comments"></i>
+                <p>Contato inicial</p>
+            </div>
+
+            <div class="timeline-step">
+                <span class="step-num">2</span>
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <p>Envio de documentos</p>
+            </div>
+
+            <div class="timeline-step">
+                <span class="step-num">3</span>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <p>Análise da declaração</p>
+            </div>
+
+            <div class="timeline-step">
+                <span class="step-num">4</span>
+                <i class="fa-solid fa-file-pdf"></i>
+                <p>Envio e protocolo</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Aviso sobre obrigatoriedade -->
+    <section class="aviso">
+        <h2>Quem deve declarar o Imposto de Renda 2026?</h2>
+
+        <ul>
+            <li>Recebeu rendimentos tributáveis acima de <strong>R$ 35.584,00</strong> em 2025;</li>
+            <li>Recebeu rendimentos isentos, não-tributáveis ou tributados exclusivamente na fonte acima de <strong>R$ 200.000,00</strong>;</li>
+            <li>Obteve ganho de capital na venda de bens ou direitos, ou realizou operações em bolsa com valor superior a <strong>R$ 40.000,00</strong>;</li>
+            <li>Teve isenção de imposto sobre ganho de capital na venda de imóvel residencial e comprou outro imóvel no prazo de 180 dias;</li>
+            <li>Teve receita bruta acima de <strong>R$ 177.920,00</strong> em atividade rural;</li>
+            <li>Possuía bens ou direitos com valor total superior a <strong>R$ 800.000,00</strong> até 31/12/2025;</li>
+            <li>Passou a residir no Brasil em 2025 e estava nessa condição até 31/12/2025;</li>
+            <li>Possui investimentos ou bens no exterior, trust, ou optou por declaração de bens de entidade controlada no exterior;</li>
+            <li>Deseja declarar voluntariamente para restituição, comprovar renda ou manter o CPF regular.</li>
+        </ul>
+
+        <p><strong>Prazo de entrega:</strong> 23 de março a 29 de maio de 2026.</p>
+    </section>
+
+    <!-- Formulário / Agendamento -->
+    <section id="formulario">
+        <h2>Agende sua Declaração de Imposto de Renda</h2>
+
+        <p>Preencha seus dados para atendimento direto no WhatsApp.</p>
+
+        <p><strong>Promoção:</strong> Declaração por apenas <strong>R$ 45,00</strong> para agendamentos até <strong>15 de abril de 2026</strong>.</p>
+
+        <form method="POST">
+            <input type="text" name="nome" placeholder="Seu nome" required>
+            <input type="text" name="whatsapp" placeholder="WhatsApp com DDD" required>
+            <button type="submit">
+                <i class="fa-solid fa-paper-plane"></i> Enviar WhatsApp
+            </button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-cards">
+            <div class="footer-card">
+                <i class="fa-solid fa-lock"></i>
+                <p>Ambiente Seguro</p>
+            </div>
+            <div class="footer-card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <p>Proteção de Dados</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            Douglas Oliveira – Consultoria em Declaração de Imposto de Renda Pessoa Física © 2026
+        </div>
+    </footer>
+
+    <!-- Countdown -->
+    <script>
+        const countDownDate = new Date("May 29, 2026 23:59:59").getTime();
+        const countdownEl = document.getElementById("countdown");
+
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            if (distance < 0) {
+                countdownEl.innerHTML = "Prazo encerrado";
+            } else {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownEl.innerHTML =
+                    days + "d " +
+                    hours + "h " +
+                    minutes + "m " +
+                    seconds + "s";
+            }
+        }, 1000);
+    </script>
 
 </body>
-</html>
+</html> está com.erro?
