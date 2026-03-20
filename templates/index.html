@@ -8,14 +8,11 @@
     <title>Declaração Imposto de Renda 2026 | Douglas Oliveira</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <meta property="og:title" content="Declaração Imposto de Renda 2026">
-    <meta property="og:description"
-        content="Consultoria especializada em IRPF. Segurança, conformidade fiscal e máxima restituição.">
+    <meta property="og:description" content="Consultoria especializada em IRPF. Segurança, conformidade fiscal e máxima restituição.">
     <meta property="og:image" content="https://douglasoliveira.onrender.com/static/images/preview-irpf.png">
     <meta property="og:url" content="https://douglasoliveira.onrender.com">
     <meta property="og:type" content="website">
@@ -45,6 +42,10 @@
                 Serviço especializado na elaboração e revisão da Declaração de Imposto de Renda Pessoa Física (IRPF).
                 Atendimento para trabalhadores CLT, profissionais autônomos, investidores e também para pessoas que
                 desejam declarar mesmo sem obrigatoriedade legal.
+            </p>
+
+            <p class="promocao">
+                Aproveite! Declaração por apenas <strong>R$ 45,00</strong> até <strong>15 de abril de 2026</strong>.
             </p>
 
             <p class="periodo">
@@ -179,20 +180,21 @@
 
     <section class="aviso">
 
-        <h2>Quem deve declarar o Imposto de Renda?</h2>
+        <h2>Quem deve declarar o Imposto de Renda 2026?</h2>
 
         <ul>
-            <li>Quem recebeu rendimentos acima do limite anual de $33.888,00</li>
-            <li>Quem possui investimentos em ações, FIIs ou criptomoedas</li>
-            <li>Quem teve ganho de capital</li>
-            <li>Quem possui bens ou imóveis</li>
-            <li>Quem deseja declarar mesmo sem obrigatoriedade</li>
+            <li>Recebeu rendimentos tributáveis acima de <strong>R$ 35.584,00</strong> em 2025;</li>
+            <li>Recebeu rendimentos isentos, não-tributáveis ou tributados exclusivamente na fonte acima de <strong>R$ 200.000,00</strong>;</li>
+            <li>Obteve ganho de capital na venda de bens ou direitos, ou realizou operações em bolsa com valor superior a <strong>R$ 40.000,00</strong>;</li>
+            <li>Teve isenção de imposto sobre ganho de capital na venda de imóvel residencial e comprou outro imóvel no prazo de 180 dias;</li>
+            <li>Teve receita bruta acima de <strong>R$ 177.920,00</strong> em atividade rural;</li>
+            <li>Possuía bens ou direitos com valor total superior a <strong>R$ 800.000,00</strong> até 31/12/2025;</li>
+            <li>Passou a residir no Brasil em 2025 e estava nessa condição até 31/12/2025;</li>
+            <li>Possui investimentos ou bens no exterior, trust, ou optou por declaração de bens de entidade controlada no exterior;</li>
+            <li>Deseja declarar voluntariamente para restituição, comprovar renda ou manter o CPF regular.</li>
         </ul>
 
-        <p>
-            Mesmo quem não é obrigado pode declarar para
-            <strong>receber restituição, comprovar renda ou manter o CPF regular.</strong>
-        </p>
+        <p><strong>Prazo de entrega:</strong> 23 de março a 29 de maio de 2026.</p>
 
     </section>
 
@@ -200,18 +202,16 @@
 
         <h2>Agende sua Declaração de Imposto de Renda</h2>
 
-        <p>Preencha seus dados para receber atendimento direto no WhatsApp</p>
+        <p>Preencha seus dados para atendimento direto no WhatsApp.</p>
+
+        <p><strong>Promoção:</strong> Declaração por apenas <strong>R$ 45,00</strong> para agendamentos até <strong>15 de abril de 2026</strong>.</p>
 
         <form method="POST">
-
             <input type="text" name="nome" placeholder="Seu nome" required>
-
             <input type="text" name="whatsapp" placeholder="WhatsApp com DDD" required>
-
             <button type="submit">
                 <i class="fa-solid fa-paper-plane"></i> Enviar WhatsApp
             </button>
-
         </form>
 
     </section>
@@ -241,20 +241,15 @@
     <script>
 
         const countDownDate = new Date("May 29, 2026 23:59:59").getTime();
-
         const countdownEl = document.getElementById("countdown");
 
         setInterval(() => {
-
             const now = new Date().getTime();
             const distance = countDownDate - now;
 
             if (distance < 0) {
-
                 countdownEl.innerHTML = "Prazo encerrado";
-
             } else {
-
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -265,9 +260,7 @@
                     hours + "h " +
                     minutes + "m " +
                     seconds + "s";
-
             }
-
         }, 1000);
 
     </script>
