@@ -10,11 +10,12 @@
 
     <style>
         :root {
-            --primary: #00d4ff; /* Ciano Neon */
-            --secondary: #6e00ff; /* Roxo */
+            --primary: #00d4ff; 
+            --secondary: #6e00ff; 
             --dark-bg: #050505;
             --glass: rgba(255, 255, 255, 0.03);
             --border: rgba(255, 255, 255, 0.1);
+            --accent: #25d366;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,157 +27,175 @@
             scroll-behavior: smooth;
         }
 
-        /* --- HEADER / HERO --- */
+        /* --- HERO SECTION --- */
         header {
-            height: 90vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(circle at 50% -20%, var(--secondary), transparent 40%);
+            background: radial-gradient(circle at 50% -20%, var(--secondary), transparent 50%);
             padding: 20px;
             text-align: center;
         }
 
         .perfil-container {
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .perfil-container img {
-            width: 160px;
-            height: 160px;
+            width: 170px;
+            height: 170px;
             border-radius: 50%;
             border: 4px solid var(--primary);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
             object-fit: cover;
         }
 
-        .perfil-container::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            right: 15px;
-            width: 25px;
-            height: 25px;
-            background: #25d366;
-            border-radius: 50%;
-            border: 3px solid var(--dark-bg);
-        }
-
-        h1 { font-size: 3rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
-        .hero-sub { font-size: 1.2rem; color: #aaa; max-width: 600px; margin-bottom: 30px; }
+        h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 10px; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-sub { font-size: 1.1rem; color: #ccc; max-width: 700px; margin-bottom: 35px; }
         
-        #countdown {
-            background: var(--glass);
-            padding: 10px 25px;
+        .timer-box {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 12px 30px;
             border-radius: 50px;
-            border: 1px solid var(--border);
-            font-size: 0.9rem;
+            border: 1px solid var(--primary);
+            font-weight: 600;
             color: var(--primary);
+            display: inline-block;
         }
 
-        /* --- GRID DE PREÇOS --- */
-        .section-title { text-align: center; padding-top: 80px; font-size: 2rem; }
+        /* --- REGRAS 2026 --- */
+        .regras-container {
+            max-width: 1100px;
+            margin: -50px auto 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .regra-card {
+            background: #111;
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+        .regra-card h4 { color: var(--primary); margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase; }
+        .regra-card p { font-size: 0.85rem; color: #888; }
+
+        /* --- PLANOS --- */
+        .section-title { text-align: center; margin: 80px 0 40px; font-size: 2.5rem; }
         
         .grid-precos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             max-width: 1200px;
-            margin: 50px auto;
+            margin: 0 auto;
             padding: 0 20px;
         }
 
         .card {
             background: var(--glass);
             border: 1px solid var(--border);
-            padding: 40px;
-            border-radius: 24px;
+            padding: 45px;
+            border-radius: 30px;
             transition: 0.4s;
-            backdrop-filter: blur(10px);
+            position: relative;
+            backdrop-filter: blur(15px);
         }
 
-        .card:hover { border-color: var(--primary); transform: translateY(-10px); background: rgba(255,255,255,0.05); }
+        .card.destaque { border-color: var(--primary); background: rgba(0, 212, 255, 0.04); }
+        .card:hover { transform: translateY(-12px); border-color: var(--primary); }
 
-        .card h3 { font-size: 1.5rem; margin-bottom: 10px; }
-        .price { font-size: 3.5rem; font-weight: 800; color: var(--primary); margin: 20px 0; }
-        .price span { font-size: 1rem; color: #777; vertical-align: middle; }
+        .price { font-size: 3.8rem; font-weight: 800; color: #fff; margin: 25px 0; }
+        .price span { font-size: 1.1rem; color: var(--primary); }
 
-        .card-list { list-style: none; margin-bottom: 30px; text-align: left; }
-        .card-list li { margin-bottom: 12px; font-size: 0.95rem; color: #ccc; }
-        .card-list i { color: var(--primary); margin-right: 10px; }
+        .card-list { list-style: none; margin-bottom: 35px; }
+        .card-list li { margin-bottom: 15px; font-size: 0.95rem; color: #bbb; display: flex; align-items: center; }
+        .card-list i { color: var(--primary); margin-right: 12px; font-size: 1.1rem; }
 
         /* --- FORMULÁRIO --- */
         .form-section {
-            max-width: 600px;
+            max-width: 650px;
             margin: 100px auto;
-            padding: 50px;
-            background: var(--glass);
-            border-radius: 30px;
+            padding: 60px;
+            background: linear-gradient(145deg, #0a0a0a, #151515);
+            border-radius: 40px;
             border: 1px solid var(--border);
             text-align: center;
         }
 
-        .form-group { margin-bottom: 20px; text-align: left; }
-        label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: #aaa; }
+        .input-group { margin-bottom: 25px; text-align: left; }
+        label { display: block; margin-bottom: 10px; font-size: 0.85rem; font-weight: 600; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
         input, select {
             width: 100%;
-            padding: 15px;
-            background: rgba(0,0,0,0.3);
+            padding: 18px;
+            background: #000;
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 15px;
             color: white;
             font-size: 1rem;
+            transition: 0.3s;
         }
-        input:focus { outline: none; border-color: var(--primary); }
+        input:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 15px rgba(0, 212, 255, 0.1); }
 
-        .btn-submit {
+        .btn-send {
             width: 100%;
-            padding: 18px;
+            padding: 20px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             border: none;
-            border-radius: 12px;
+            border-radius: 15px;
             color: white;
             font-weight: 800;
             cursor: pointer;
-            font-size: 1.1rem;
-            text-transform: uppercase;
+            font-size: 1.2rem;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .btn-submit:hover { opacity: 0.9; transform: scale(1.02); box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2); }
+        .btn-send:hover { transform: scale(1.02); filter: brightness(1.1); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3); }
 
-        /* Floating WhatsApp */
+        /* Botão WhatsApp */
         .float-wa {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            width: 60px;
-            height: 60px;
+            bottom: 35px;
+            right: 35px;
+            background: var(--accent);
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 32px;
             color: white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            z-index: 100;
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
+            z-index: 999;
             text-decoration: none;
+            transition: 0.3s;
         }
+        .float-wa:hover { transform: scale(1.1) rotate(10deg); }
 
-        footer { padding: 50px; text-align: center; border-top: 1px solid var(--border); color: #555; font-size: 0.8rem; }
+        footer { padding: 80px 20px; text-align: center; border-top: 1px solid var(--border); }
+        .cashback-alert { background: #111; padding: 15px; border-radius: 12px; border: 1px dashed var(--primary); margin: 20px 0; font-size: 0.85rem; color: #00d4ff; }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .form-section { margin: 50px 20px; padding: 30px; }
+            h1 { font-size: 2.5rem; }
+            .form-section { margin: 50px 15px; padding: 35px; }
+            .grid-precos { gap: 40px; }
         }
     </style>
 </head>
 <body>
 
-<a href="https://wa.me/55179XXXXXXXX" class="float-wa" target="_blank">
+<a href="https://wa.me/5517982073231" class="float-wa" target="_blank">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
 
@@ -184,99 +203,136 @@
     <div class="perfil-container">
         <img src="{{ url_for('static', filename='images/sua_foto.jpg') }}" alt="Douglas Oliveira">
     </div>
-    <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px;">CONSULTORIA TRIBUTÁRIA</span>
+    <div style="font-weight: 800; color: var(--primary); margin-bottom: 10px; letter-spacing: 3px;">IRPF 2026</div>
     <h1>Douglas Oliveira</h1>
-    <p class="hero-sub">Especialista em Declaração de IRPF para profissionais modernos, investidores e MEIs em São José do Rio Preto e todo o Brasil.</p>
-    <div id="countdown">Carregando prazo da Receita...</div>
+    <p class="hero-sub">Consultoria tributária especializada para quem busca segurança jurídica, agilidade e a máxima restituição permitida por lei.</p>
+    <div class="timer-box" id="countdown">Aguardando dados da Receita...</div>
 </header>
 
-<h2 class="section-title">Nossos Planos</h2>
+<section class="regras-container">
+    <div class="regra-card">
+        <h4>Obrigação 2026</h4>
+        <p>Rendimentos tributáveis acima de <b>R$ 35.584,00</b> no ano-base 2025.</p>
+    </div>
+    <div class="regra-card">
+        <h4>Investidores</h4>
+        <p>Operações em bolsa acima de <b>R$ 40 mil</b> ou bens acima de R$ 800 mil.</p>
+    </div>
+    <div class="regra-card">
+        <h4>Prazos Oficiais</h4>
+        <p>Entrega de <b>23 de março a 29 de maio</b>. Evite multas de até 20%.</p>
+    </div>
+</section>
+
+<h2 class="section-title">Investimento</h2>
 
 <div class="grid-precos">
     <div class="card">
         <h3>Simples</h3>
-        <div class="price">R$ 45 <span>/único</span></div>
+        <p style="color: #666;">Apenas uma fonte de renda</p>
+        <div class="price">R$ 45 <span>p/ declaração</span></div>
         <ul class="card-list">
-            <li><i class="fa-solid fa-circle-check"></i> Salários e Aposentadoria</li>
-            <li><i class="fa-solid fa-circle-check"></i> Rendimentos de uma fonte</li>
-            <li><i class="fa-solid fa-circle-check"></i> Envio do Recibo Digital</li>
+            <li><i class="fa-solid fa-check-double"></i> Salários / Aposentadoria</li>
+            <li><i class="fa-solid fa-check-double"></i> Despesas Médicas/Educação</li>
+            <li><i class="fa-solid fa-check-double"></i> Entrega Digital Imediata</li>
         </ul>
-        <a href="#form-contato" class="btn-submit" style="text-decoration:none; display:block; text-align:center;">Selecionar</a>
+        <a href="#agendamento" class="btn-send" style="text-decoration:none; font-size: 1rem; padding: 15px;">Escolher este</a>
     </div>
 
-    <div class="card" style="border-color: var(--primary); background: rgba(0, 212, 255, 0.05);">
+    <div class="card destaque">
+        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #000; padding: 4px 15px; border-radius: 50px; font-size: 0.7rem; font-weight: 800;">MAIS CONTRATADO</div>
         <h3>Completa</h3>
-        <div class="price">R$ 100 <span>/único</span></div>
+        <p style="color: #666;">Investidores e Bens</p>
+        <div class="price">R$ 100 <span>p/ declaração</span></div>
         <ul class="card-list">
-            <li><i class="fa-solid fa-circle-check"></i> Ações, FIIs e Criptomoedas</li>
-            <li><i class="fa-solid fa-circle-check"></i> Imóveis e Veículos</li>
-            <li><i class="fa-solid fa-circle-check"></i> Ganho de Capital</li>
-            <li><i class="fa-solid fa-circle-check"></i> Revisão de Malha Fina</li>
+            <li><i class="fa-solid fa-check-double"></i> Ações, FIIs e Cripto</li>
+            <li><i class="fa-solid fa-check-double"></i> Imóveis e Veículos</li>
+            <li><i class="fa-solid fa-check-double"></i> Ganho de Capital Exterior</li>
+            <li><i class="fa-solid fa-check-double"></i> Planejamento Tributário</li>
         </ul>
-        <a href="#form-contato" class="btn-submit" style="text-decoration:none; display:block; text-align:center;">Selecionar</a>
+        <a href="#agendamento" class="btn-send" style="text-decoration:none; font-size: 1rem; padding: 15px;">Escolher este</a>
     </div>
 
     <div class="card">
         <h3>MEI</h3>
-        <div class="price">R$ 150 <span>/único</span></div>
+        <p style="color: #666;">Empresários Individuais</p>
+        <div class="price">R$ 150 <span>p/ declaração</span></div>
         <ul class="card-list">
-            <li><i class="fa-solid fa-circle-check"></i> DASN-SIMEI</li>
-            <li><i class="fa-solid fa-circle-check"></i> IRPF Sócio (Pessoa Física)</li>
-            <li><i class="fa-solid fa-circle-check"></i> Análise de Faturamento</li>
+            <li><i class="fa-solid fa-check-double"></i> Declaração DASN-SIMEI</li>
+            <li><i class="fa-solid fa-check-double"></i> IRPF Pessoa Física</li>
+            <li><i class="fa-solid fa-check-double"></i> Distribuição de Lucros</li>
         </ul>
-        <a href="#form-contato" class="btn-submit" style="text-decoration:none; display:block; text-align:center;">Selecionar</a>
+        <a href="#agendamento" class="btn-send" style="text-decoration:none; font-size: 1rem; padding: 15px;">Escolher este</a>
     </div>
 </div>
 
-<div class="form-section" id="form-contato">
-    <h2 style="margin-bottom: 10px;">Agende seu Atendimento</h2>
-    <p style="color: #888; margin-bottom: 30px;">Preencha os dados e fale comigo agora pelo WhatsApp</p>
+<div class="form-section" id="agendamento">
+    <h2 style="margin-bottom: 10px;">Solicitar Atendimento</h2>
+    <p style="color: #888; margin-bottom: 20px;">Envie seus dados para iniciar o processo via WhatsApp</p>
     
-    <form id="irpfForm">
-        <div class="form-group">
-            <label>Seu Nome</label>
-            <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+    <div class="cashback-alert">
+        <i class="fa-solid fa-bolt"></i> <b>Novidade 2026:</b> Cerca de 4 milhões terão "Cashback" (restituição automática) via PIX. Verifique se você tem direito!
+    </div>
+
+    <form id="formWhats">
+        <div class="input-group">
+            <label>Seu Nome Completo</label>
+            <input type="text" id="cliente_nome" placeholder="Ex: João Silva" required>
         </div>
-        <div class="form-group">
-            <label>Tipo de Declaração</label>
-            <select id="plano">
-                <option value="Simples (R$ 45)">Simples - R$ 45,00</option>
-                <option value="Completa (R$ 100)">Completa / Investidor - R$ 100,00</option>
-                <option value="MEI (R$ 150)">MEI - R$ 150,00</option>
+        <div class="input-group">
+            <label>Qual o seu perfil?</label>
+            <select id="cliente_perfil">
+                <option value="Declaração Simples">Apenas Salário / Aposentadoria (R$ 45)</option>
+                <option value="Declaração Completa/Investidor">Investidor / Bens (R$ 100)</option>
+                <option value="Declaração MEI">Empresário MEI (R$ 150)</option>
+                <option value="Dúvida/Outros">Apenas tirar dúvidas</option>
             </select>
         </div>
-        <button type="submit" class="btn-submit">
-            <i class="fa-brands fa-whatsapp"></i> Iniciar Consultoria
+        <button type="submit" class="btn-send">
+            <i class="fa-brands fa-whatsapp"></i> AGENDAR AGORA
         </button>
     </form>
 </div>
 
 <footer>
-    <p>Douglas Oliveira | Consultor Tributário</p>
-    <p style="margin-top: 10px;">São José do Rio Preto - SP | Atendimento Nacional</p>
-    <p style="font-size: 0.7rem; color: #333; margin-top: 20px;">&copy; 2026 Todos os direitos reservados.</p>
+    <p style="color: #fff; font-weight: 600;">Douglas Oliveira</p>
+    <p style="color: #666; font-size: 0.8rem; margin: 10px 0;">Consultoria em São José do Rio Preto - SP | Atendimento em todo o Brasil</p>
+    <div style="margin-top: 25px; display: flex; justify-content: center; gap: 20px; color: var(--primary); font-size: 1.2rem;">
+        <i class="fa-solid fa-shield-halved"></i>
+        <i class="fa-solid fa-user-check"></i>
+        <i class="fa-solid fa-file-shield"></i>
+    </div>
+    <p style="font-size: 0.6rem; color: #333; margin-top: 40px;">&copy; 2026 Douglas Oliveira. Informações baseadas nas regras oficiais da Receita Federal.</p>
 </footer>
 
 <script>
-    // Countdown Timer
-    const targetDate = new Date("May 29, 2026 23:59:59").getTime();
-    setInterval(() => {
-        const now = new Date().getTime();
-        const diff = targetDate - now;
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("countdown").innerHTML = `⏳ Prazo final IRPF 2026: ${days} dias e ${hours} horas restantes!`;
+    // Contador oficial para 29 de Maio de 2026
+    const dataLimite = new Date("May 29, 2026 23:59:59").getTime();
+    
+    const timer = setInterval(() => {
+        const agora = new Date().getTime();
+        const sobra = dataLimite - agora;
+        
+        const d = Math.floor(sobra / (1000 * 60 * 60 * 24));
+        const h = Math.floor((sobra % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        
+        document.getElementById("countdown").innerHTML = `⏳ FALTAM ${d} DIAS E ${h}H PARA O FIM DO PRAZO!`;
+        
+        if (sobra < 0) {
+            clearInterval(timer);
+            document.getElementById("countdown").innerHTML = "PRAZO ENCERRADO";
+        }
     }, 1000);
 
-    // Form para WhatsApp
-    document.getElementById('irpfForm').addEventListener('submit', function(e) {
+    // Lógica do Formulário
+    document.getElementById('formWhats').addEventListener('submit', function(e) {
         e.preventDefault();
-        const nome = document.getElementById('nome').value;
-        const plano = document.getElementById('plano').value;
-        const fone = "55179XXXXXXXX"; // <-- COLOQUE SEU NÚMERO AQUI
+        const nome = document.getElementById('cliente_nome').value;
+        const perfil = document.getElementById('cliente_perfil').value;
+        const num = "5517982073231"; 
         
-        const texto = `Olá Douglas! Meu nome é ${nome} e quero contratar sua consultoria para a Declaração ${plano}. Como procedemos?`;
-        const link = `https://wa.me/${fone}?text=${encodeURIComponent(texto)}`;
+        const mensagem = `Olá Douglas! Meu nome é ${nome}. Gostaria de solicitar o serviço de: *${perfil}*. Como podemos iniciar o envio dos documentos?`;
+        const link = `https://wa.me/${num}?text=${encodeURIComponent(mensagem)}`;
         
         window.open(link, '_blank');
     });
