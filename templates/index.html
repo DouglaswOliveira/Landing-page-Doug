@@ -3,213 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Douglas Oliveira | IRPF 2026</title>
+    <title>Douglas Oliveira | IRPF 2026 Especialista</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --primary: #00d4ff; /* Azul Neon */
-            --secondary: #6e00ff; /* Roxo Neon */
-            --dark: #0a0a0b;
-            --card-bg: #161618;
-            --text: #ffffff;
+            --primary: #00d4ff; /* Ciano Neon */
+            --secondary: #6e00ff; /* Roxo */
+            --dark-bg: #050505;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--dark);
-            color: var(--text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--dark-bg);
+            color: #fff;
             line-height: 1.6;
-            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Hero Section */
+        /* --- HEADER / HERO --- */
         header {
-            height: 100vh;
+            height: 90vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            background: radial-gradient(circle at top right, rgba(110, 0, 255, 0.15), transparent),
-                        radial-gradient(circle at bottom left, rgba(0, 212, 255, 0.1), transparent);
+            background: radial-gradient(circle at 50% -20%, var(--secondary), transparent 40%);
             padding: 20px;
+            text-align: center;
         }
 
-        .hero-content img {
-            width: 150px;
-            height: 150px;
+        .perfil-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .perfil-container img {
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            border: 3px solid var(--primary);
-            box-shadow: 0 0 20px var(--primary);
-            margin-bottom: 20px;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
             object-fit: cover;
         }
 
-        h1 { font-size: 2.5rem; margin-bottom: 10px; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .badge { background: var(--primary); color: #000; padding: 5px 15px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; }
+        .perfil-container::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            right: 15px;
+            width: 25px;
+            height: 25px;
+            background: #25d366;
+            border-radius: 50%;
+            border: 3px solid var(--dark-bg);
+        }
 
-        /* Countdown */
-        #countdown { font-weight: bold; color: var(--primary); font-size: 1.2rem; display: block; margin-top: 15px; }
+        h1 { font-size: 3rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+        .hero-sub { font-size: 1.2rem; color: #aaa; max-width: 600px; margin-bottom: 30px; }
+        
+        #countdown {
+            background: var(--glass);
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
 
-        /* Grid de Preços */
-        .precos-section { padding: 100px 20px; text-align: center; }
+        /* --- GRID DE PREÇOS --- */
+        .section-title { text-align: center; padding-top: 80px; font-size: 2rem; }
+        
         .grid-precos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 25px;
             max-width: 1200px;
-            margin: 50px auto 0;
-            align-items: end;
+            margin: 50px auto;
+            padding: 0 20px;
         }
 
         .card {
-            background: var(--card-bg);
-            padding: 40px 30px;
-            border-radius: 20px;
-            border: 1px solid #222;
-            transition: 0.3s;
-            position: relative;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 24px;
+            transition: 0.4s;
+            backdrop-filter: blur(10px);
         }
 
-        .card:hover { border-color: var(--primary); transform: translateY(-10px); }
+        .card:hover { border-color: var(--primary); transform: translateY(-10px); background: rgba(255,255,255,0.05); }
 
-        .card.destaque {
-            border: 2px solid var(--primary);
-            background: linear-gradient(145deg, #161618, #1c1c20);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        .card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .price { font-size: 3.5rem; font-weight: 800; color: var(--primary); margin: 20px 0; }
+        .price span { font-size: 1rem; color: #777; vertical-align: middle; }
+
+        .card-list { list-style: none; margin-bottom: 30px; text-align: left; }
+        .card-list li { margin-bottom: 12px; font-size: 0.95rem; color: #ccc; }
+        .card-list i { color: var(--primary); margin-right: 10px; }
+
+        /* --- FORMULÁRIO --- */
+        .form-section {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 50px;
+            background: var(--glass);
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            text-align: center;
         }
 
-        .price { font-size: 3rem; font-weight: 800; margin: 20px 0; color: var(--primary); }
-        .price span { font-size: 1.2rem; color: #888; }
-
-        .btn {
-            display: block;
+        .form-group { margin-bottom: 20px; text-align: left; }
+        label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: #aaa; }
+        input, select {
             width: 100%;
             padding: 15px;
-            border-radius: 50px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+        }
+        input:focus { outline: none; border-color: var(--primary); }
+
+        .btn-submit {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             border: none;
-            font-weight: bold;
+            border-radius: 12px;
+            color: white;
+            font-weight: 800;
             cursor: pointer;
-            text-decoration: none;
+            font-size: 1.1rem;
+            text-transform: uppercase;
             transition: 0.3s;
-            margin-top: 25px;
         }
 
-        .btn-primary { background: var(--primary); color: #000; }
-        .btn-outline { background: transparent; border: 1px solid var(--primary); color: var(--primary); }
-        .btn:hover { filter: brightness(1.2); box-shadow: 0 0 15px var(--primary); }
+        .btn-submit:hover { opacity: 0.9; transform: scale(1.02); box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2); }
 
-        /* Info Section */
-        .info-box {
-            max-width: 900px;
-            margin: 50px auto;
-            background: #111;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: left;
-            border-left: 4px solid var(--secondary);
+        /* Floating WhatsApp */
+        .float-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            z-index: 100;
+            text-decoration: none;
         }
 
-        footer { padding: 40px; text-align: center; color: #555; font-size: 0.9rem; }
+        footer { padding: 50px; text-align: center; border-top: 1px solid var(--border); color: #555; font-size: 0.8rem; }
 
         @media (max-width: 768px) {
-            h1 { font-size: 1.8rem; }
-            .card.destaque { transform: none; }
+            h1 { font-size: 2.2rem; }
+            .form-section { margin: 50px 20px; padding: 30px; }
         }
     </style>
 </head>
 <body>
 
+<a href="https://wa.me/55179XXXXXXXX" class="float-wa" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
 <header>
-    <div class="hero-content">
-        <img src="/static/images/perfil.jpg" alt="Douglas Oliveira">
-        <br>
-        <span class="badge">Especialista IRPF 2026</span>
-        <h1>Douglas Oliveira</h1>
-        <p>Segurança Fiscal, Conformidade e Máxima Restituição</p>
-        <div id="countdown">Carregando prazo...</div>
-        <a href="#precos" class="btn btn-primary" style="width: auto; display: inline-block; padding: 12px 40px; margin-top: 25px;">Ver Planos</a>
+    <div class="perfil-container">
+        <img src="{{ url_for('static', filename='images/sua_foto.jpg') }}" alt="Douglas Oliveira">
     </div>
+    <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px;">CONSULTORIA TRIBUTÁRIA</span>
+    <h1>Douglas Oliveira</h1>
+    <p class="hero-sub">Especialista em Declaração de IRPF para profissionais modernos, investidores e MEIs em São José do Rio Preto e todo o Brasil.</p>
+    <div id="countdown">Carregando prazo da Receita...</div>
 </header>
 
-<section id="precos" class="precos-section">
-    <h2>Tabela de Investimento 2026</h2>
-    <p>Atendimento 100% digital e seguro para todo o Brasil</p>
+<h2 class="section-title">Nossos Planos</h2>
 
-    <div class="grid-precos">
-        <div class="card">
-            <h3>Declaração Simples</h3>
-            <p style="color: #888;">Salários e Aposentadorias</p>
-            <div class="price"><span>R$</span>45</div>
-            <ul style="list-style: none; text-align: left; font-size: 0.9rem;">
-                <li><i class="fa-solid fa-check" color="green"></i> Rendimentos de uma única fonte</li>
-                <li><i class="fa-solid fa-check"></i> Comprovantes de despesas médicas</li>
-                <li><i class="fa-solid fa-check"></i> Envio do protocolo digital</li>
-            </ul>
-            <button onclick="enviarWhats('Simples', 45)" class="btn btn-outline">Selecionar</button>
-        </div>
-
-        <div class="card destaque">
-            <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--secondary); color: white; padding: 2px 15px; border-radius: 20px; font-size: 0.7rem;">RECOMENDADO</div>
-            <h3>Completa / Investidor</h3>
-            <p style="color: #888;">Bens, Ações e Cripto</p>
-            <div class="price"><span>R$</span>100</div>
-            <ul style="list-style: none; text-align: left; font-size: 0.9rem;">
-                <li><i class="fa-solid fa-check"></i> Ações, FIIs e BDRs</li>
-                <li><i class="fa-solid fa-check"></i> Criptomoedas e Ativos Externos</li>
-                <li><i class="fa-solid fa-check"></i> Compra/Venda de Imóveis</li>
-                <li><i class="fa-solid fa-check"></i> Ganho de Capital</li>
-            </ul>
-            <button onclick="enviarWhats('Completa/Investidor', 100)" class="btn btn-primary">Falar com Douglas</button>
-        </div>
-
-        <div class="card">
-            <h3>Declaração MEI</h3>
-            <p style="color: #888;">Microempreendedor</p>
-            <div class="price"><span>R$</span>150</div>
-            <ul style="list-style: none; text-align: left; font-size: 0.9rem;">
-                <li><i class="fa-solid fa-check"></i> Faturamento Anual (DASN)</li>
-                <li><i class="fa-solid fa-check"></i> Declaração de Pessoa Física</li>
-                <li><i class="fa-solid fa-check"></i> Análise de Pró-labore</li>
-            </ul>
-            <button onclick="enviarWhats('MEI', 150)" class="btn btn-outline">Selecionar</button>
-        </div>
+<div class="grid-precos">
+    <div class="card">
+        <h3>Simples</h3>
+        <div class="price">R$ 45 <span>/único</span></div>
+        <ul class="card-list">
+            <li><i class="fa-solid fa-circle-check"></i> Salários e Aposentadoria</li>
+            <li><i class="fa-solid fa-circle-check"></i> Rendimentos de uma fonte</li>
+            <li><i class="fa-solid fa-circle-check"></i> Envio do Recibo Digital</li>
+        </ul>
+        <a href="#form-contato" class="btn-submit" style="text-decoration:none; display:block; text-align:center;">Selecionar</a>
     </div>
-</section>
 
-<section class="info-box">
-    <h3 style="color: var(--primary); margin-bottom: 15px;"><i class="fa-solid fa-circle-exclamation"></i> Quem deve declarar?</h3>
-    <p style="font-size: 0.9rem;">• Recebeu acima de <strong>R$ 35.584,00</strong> em rendimentos tributáveis.</p>
-    <p style="font-size: 0.9rem;">• Possui bens acima de <strong>R$ 800.000,00</strong>.</p>
-    <p style="font-size: 0.9rem;">• Operou em Bolsa acima de <strong>R$ 40.000,00</strong>.</p>
-</section>
+    <div class="card" style="border-color: var(--primary); background: rgba(0, 212, 255, 0.05);">
+        <h3>Completa</h3>
+        <div class="price">R$ 100 <span>/único</span></div>
+        <ul class="card-list">
+            <li><i class="fa-solid fa-circle-check"></i> Ações, FIIs e Criptomoedas</li>
+            <li><i class="fa-solid fa-circle-check"></i> Imóveis e Veículos</li>
+            <li><i class="fa-solid fa-circle-check"></i> Ganho de Capital</li>
+            <li><i class="fa-solid fa-circle-check"></i> Revisão de Malha Fina</li>
+        </ul>
+        <a href="#form-contato" class="btn-submit" style="text-decoration:none; display:block; text-align:center;">Selecionar</a>
+    </div>
+
+    <div class="card">
+        <h3>MEI</h3>
+        <div class="price">R$ 150 <span>/único</span></div>
+        <ul class="card-list">
+            <li><i class="fa-solid fa-circle-check"></i> DASN-SIMEI</li>
+            <li><i class="fa-solid fa-circle-check"></i> IRPF Sócio (Pessoa Física)</li>
+            <li><i class="fa-solid fa-circle-check"></i> Análise de Faturamento</li>
+        </ul>
+        <a href="#form-contato" class="btn-submit" style="text-decoration:none; display:block; text-align:center;">Selecionar</a>
+    </div>
+</div>
+
+<div class="form-section" id="form-contato">
+    <h2 style="margin-bottom: 10px;">Agende seu Atendimento</h2>
+    <p style="color: #888; margin-bottom: 30px;">Preencha os dados e fale comigo agora pelo WhatsApp</p>
+    
+    <form id="irpfForm">
+        <div class="form-group">
+            <label>Seu Nome</label>
+            <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+        </div>
+        <div class="form-group">
+            <label>Tipo de Declaração</label>
+            <select id="plano">
+                <option value="Simples (R$ 45)">Simples - R$ 45,00</option>
+                <option value="Completa (R$ 100)">Completa / Investidor - R$ 100,00</option>
+                <option value="MEI (R$ 150)">MEI - R$ 150,00</option>
+            </select>
+        </div>
+        <button type="submit" class="btn-submit">
+            <i class="fa-brands fa-whatsapp"></i> Iniciar Consultoria
+        </button>
+    </form>
+</div>
 
 <footer>
-    <p>Douglas Oliveira – Consultoria Tributária Especializada &copy; 2026</p>
-    <p style="font-size: 0.7rem; margin-top: 10px;">Proteção de dados conforme LGPD.</p>
+    <p>Douglas Oliveira | Gestor de Segurança e Consultor Tributário</p>
+    <p style="margin-top: 10px;">São José do Rio Preto - SP | Atendimento Nacional</p>
+    <p style="font-size: 0.7rem; color: #333; margin-top: 20px;">&copy; 2026 Todos os direitos reservados.</p>
 </footer>
 
 <script>
-    // Contador
-    const prazo = new Date("May 29, 2026 23:59:59").getTime();
+    // Countdown Timer
+    const targetDate = new Date("May 29, 2026 23:59:59").getTime();
     setInterval(() => {
-        const agora = new Date().getTime();
-        const dist = prazo - agora;
-        const dias = Math.floor(dist / (1000 * 60 * 60 * 24));
-        const horas = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("countdown").innerHTML = `Restam ${dias} dias e ${horas}h para o prazo final!`;
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("countdown").innerHTML = `⏳ Prazo final IRPF 2026: ${days} dias e ${hours} horas restantes!`;
     }, 1000);
 
-    // WhatsApp
-    function enviarWhats(plano, preco) {
-        const fone = "551792073231"; // <-- COLOQUE SEU WHATSAPP AQUI
-        const msg = encodeURIComponent(`Olá Douglas! Vi seu site e quero agendar minha *Declaração ${plano}* (R$ ${preco},00). Como começamos?`);
-        window.open(`https://wa.me/${fone}?text=${msg}`, '_blank');
-    }
+    // Form para WhatsApp
+    document.getElementById('irpfForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nome = document.getElementById('nome').value;
+        const plano = document.getElementById('plano').value;
+        const fone = "55179XXXXXXXX"; // <-- COLOQUE SEU NÚMERO AQUI
+        
+        const texto = `Olá Douglas! Meu nome é ${nome} e quero contratar sua consultoria para a Declaração ${plano}. Como procedemos?`;
+        const link = `https://wa.me/${fone}?text=${encodeURIComponent(texto)}`;
+        
+        window.open(link, '_blank');
+    });
 </script>
 
 </body>
