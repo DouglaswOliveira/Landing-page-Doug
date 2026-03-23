@@ -22,6 +22,29 @@
     <meta name="twitter:description" content="Consultoria especializada em IRPF com atendimento profissional.">
     <meta name="twitter:image" content="https://douglasoliveira.onrender.com/static/images/preview-irpf.png">
 
+    <style>
+        /* Estilo do botão "Descubra como restituir mais" */
+        .btn-restituicao {
+            background: #ffffff;        /* fundo branco */
+            color: #8257e5;             /* cor roxa do tema */
+            border: 2px solid #8257e5;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+
+        .btn-restituicao:hover {
+            background: linear-gradient(90deg, #6f4ce0, #9a6aff);
+            color: #ffffff;
+            border-color: transparent;
+        }
+    </style>
 </head>
 
 <body>
@@ -49,8 +72,14 @@
                 <strong>23 de março a 29 de maio</strong>
             </p>
 
+            <!-- Botão principal WhatsApp -->
             <a href="#formulario" class="btn-banner">
                 <i class="fa-solid fa-paper-plane"></i> Falar com especialista
+            </a>
+
+            <!-- Novo botão Descubra como restituir mais -->
+            <a href="{{ url_for('restituicao') }}" class="btn-banner btn-restituicao">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Descubra como restituir mais
             </a>
 
             <span class="garantia">
