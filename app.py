@@ -6,12 +6,10 @@ app = Flask(__name__)
 
 SEU_WHATSAPP = "5517982073231"
 
-
+# Rota principal (home) – mantém POST do formulário
 @app.route("/", methods=["GET", "POST"])
 def home():
-
     if request.method == "POST":
-
         nome = request.form.get("nome")
         whatsapp_cliente = request.form.get("whatsapp")
 
@@ -35,18 +33,21 @@ Gostaria de receber mais informações.
 """
 
         mensagem_codificada = urllib.parse.quote(mensagem)
-
         url = f"https://wa.me/{SEU_WHATSAPP}?text={mensagem_codificada}"
 
         return redirect(url)
 
     return render_template("index.html")
 
+# Rota da nova página "Como restituir mais"
+@app.route("/restituicao")
+def restituicao():
+    return render_template("restituicao.html")
 
+# Health check
 @app.route("/health")
 def health():
     return "OK"
 
-
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
