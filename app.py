@@ -37,12 +37,8 @@ Gostaria de receber mais informações.
 
         return redirect(url)
 
+    # Renderiza o index.html, que agora inclui a seção "Como restituir mais"
     return render_template("index.html")
-
-# Rota da nova página "Como restituir mais"
-@app.route("/restituicao")
-def restituicao():
-    return render_template("restituicao.html")
 
 # Health check
 @app.route("/health")
