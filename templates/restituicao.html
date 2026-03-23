@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Restituir Mais | Douglas Oliveira</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="banner">
+        <div class="overlay">
+            <div class="perfil"></div>
+            <h1>Descubra como restituir mais no Imposto de Renda</h1>
+            <p class="subtitulo">
+                Aproveite todas as deduções legais para reduzir seu imposto e aumentar sua restituição.
+            </p>
+        </div>
+    </header>
+
+    <section class="conteudo">
+        <h2>📊 O que pode ser deduzido no Imposto de Renda (Pessoa Física)</h2>
+
+        <p>💡 Confira abaixo os principais itens que ajudam a reduzir o valor do imposto:</p>
+
+        <ul>
+            <li>👨‍👩‍👧 <strong>Dependentes</strong> – Filhos, cônjuge, enteados, pais, etc. Valor fixo de dedução por dependente que não esteja com registro ou com algum rendimento.</li>
+            <li>🎓 <strong>Educação</strong> – Escola, faculdade, pós-graduação, cursos técnicos e ensino regular. ⚠️ Não inclui cursos livres (idiomas, informática, etc.)</li>
+            <li>🏥 <strong>Despesas Médicas</strong> – Consultas, exames, cirurgias, dentista, psicólogo, fisioterapia, plano de saúde. ✅ Sem limite de valor (desde que comprovado)</li>
+            <li>🧾 <strong>Pensão Alimentícia</strong> – Quando determinada por decisão judicial ou acordo formal</li>
+            <li>🏦 <strong>Previdência Privada (PGBL)</strong> – Dedução de até 12% da renda tributável</li>
+            <li>🏢 <strong>INSS (Previdência Oficial)</strong> – Contribuições feitas ao INSS</li>
+            <li>📚 <strong>Livro Caixa (Autônomos)</strong> – Despesas relacionadas à atividade profissional (ex: aluguel, internet, materiais, etc.)</li>
+            <li>🧒 <strong>Empregado Doméstico</strong> – Contribuição ao INSS (quando permitido pela regra vigente)</li>
+            <li>🏠 <strong>Doações Incentivadas</strong> – Fundo da Criança e Adolescente, Fundo do Idoso, Cultura e Esporte via leis de incentivo</li>
+        </ul>
+
+        <p>📌 <strong>Importante:</strong> Guarde todos os comprovantes! A Receita Federal pode solicitar.</p>
+        <p>⚠️ <strong>Dica:</strong> Organize seus documentos ao longo do ano para pagar menos imposto e evitar problemas.</p>
+        <p>📲 Precisando de ajuda? Estou à disposição!</p>
+
+        <a href="{{ url_for('index') }}" class="btn-banner">
+            <i class="fa-solid fa-arrow-left"></i> Voltar para a página principal
+        </a>
+    </section>
+
+    <footer>
+        <div class="footer-cards">
+            <div class="footer-card">
+                <i class="fa-solid fa-lock"></i>
+                <p>Ambiente Seguro</p>
+            </div>
+            <div class="footer-card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <p>Proteção de Dados</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            Douglas Oliveira – Consultoria em Declaração de Imposto de Renda Pessoa Física © 2026
+        </div>
+    </footer>
+
+</body>
+</html>
