@@ -9,10 +9,76 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Estilo de cards para deduções */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #8257e5;
+        }
+
+        .card p {
+            margin: 10px 0 0 0;
+        }
+
+        .btn-voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background: #ffffff;
+            color: #8257e5;
+            border: 2px solid #8257e5;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-voltar:hover {
+            background: linear-gradient(90deg, #6f4ce0, #9a6aff);
+            color: #ffffff;
+            border-color: transparent;
+        }
+
+        .conteudo {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .conteudo h2 {
+            color: #8257e5;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 
 <body>
 
+    <!-- Banner -->
     <header class="banner">
         <div class="overlay">
             <div class="perfil"></div>
@@ -23,32 +89,67 @@
         </div>
     </header>
 
+    <!-- Conteúdo -->
     <section class="conteudo">
-        <h2>📊 O que pode ser deduzido no Imposto de Renda (Pessoa Física)</h2>
+        <h2>📊 Deduções que aumentam sua restituição</h2>
 
-        <p>💡 Confira abaixo os principais itens que ajudam a reduzir o valor do imposto:</p>
+        <div class="grid-cards">
+            <div class="card">
+                <h3>👨‍👩‍👧 Dependentes</h3>
+                <p>Filhos, cônjuge, enteados, pais, etc. Valor fixo de dedução por dependente que não tenha rendimento.</p>
+            </div>
 
-        <ul>
-            <li>👨‍👩‍👧 <strong>Dependentes</strong> – Filhos, cônjuge, enteados, pais, etc. Valor fixo de dedução por dependente que não esteja com registro ou com algum rendimento.</li>
-            <li>🎓 <strong>Educação</strong> – Escola, faculdade, pós-graduação, cursos técnicos e ensino regular. ⚠️ Não inclui cursos livres (idiomas, informática, etc.)</li>
-            <li>🏥 <strong>Despesas Médicas</strong> – Consultas, exames, cirurgias, dentista, psicólogo, fisioterapia, plano de saúde. ✅ Sem limite de valor (desde que comprovado)</li>
-            <li>🧾 <strong>Pensão Alimentícia</strong> – Quando determinada por decisão judicial ou acordo formal</li>
-            <li>🏦 <strong>Previdência Privada (PGBL)</strong> – Dedução de até 12% da renda tributável</li>
-            <li>🏢 <strong>INSS (Previdência Oficial)</strong> – Contribuições feitas ao INSS</li>
-            <li>📚 <strong>Livro Caixa (Autônomos)</strong> – Despesas relacionadas à atividade profissional (ex: aluguel, internet, materiais, etc.)</li>
-            <li>🧒 <strong>Empregado Doméstico</strong> – Contribuição ao INSS (quando permitido pela regra vigente)</li>
-            <li>🏠 <strong>Doações Incentivadas</strong> – Fundo da Criança e Adolescente, Fundo do Idoso, Cultura e Esporte via leis de incentivo</li>
-        </ul>
+            <div class="card">
+                <h3>🎓 Educação</h3>
+                <p>Escola, faculdade, pós-graduação, cursos técnicos e ensino regular. Não inclui cursos livres.</p>
+            </div>
+
+            <div class="card">
+                <h3>🏥 Despesas Médicas</h3>
+                <p>Consultas, exames, cirurgias, dentista, psicólogo, fisioterapia, plano de saúde. Sem limite de valor, desde que comprovado.</p>
+            </div>
+
+            <div class="card">
+                <h3>🧾 Pensão Alimentícia</h3>
+                <p>Quando determinada por decisão judicial ou acordo formal.</p>
+            </div>
+
+            <div class="card">
+                <h3>🏦 Previdência Privada (PGBL)</h3>
+                <p>Dedução de até 12% da renda tributável.</p>
+            </div>
+
+            <div class="card">
+                <h3>🏢 INSS (Previdência Oficial)</h3>
+                <p>Contribuições feitas ao INSS.</p>
+            </div>
+
+            <div class="card">
+                <h3>📚 Livro Caixa (Autônomos)</h3>
+                <p>Despesas relacionadas à atividade profissional, como aluguel, internet, materiais, etc.</p>
+            </div>
+
+            <div class="card">
+                <h3>🧒 Empregado Doméstico</h3>
+                <p>Contribuição ao INSS quando permitido pela regra vigente.</p>
+            </div>
+
+            <div class="card">
+                <h3>🏠 Doações Incentivadas</h3>
+                <p>Fundo da Criança e Adolescente, Fundo do Idoso, Cultura e Esporte via leis de incentivo.</p>
+            </div>
+        </div>
 
         <p>📌 <strong>Importante:</strong> Guarde todos os comprovantes! A Receita Federal pode solicitar.</p>
         <p>⚠️ <strong>Dica:</strong> Organize seus documentos ao longo do ano para pagar menos imposto e evitar problemas.</p>
         <p>📲 Precisando de ajuda? Estou à disposição!</p>
 
-        <a href="{{ url_for('index') }}" class="btn-banner">
+        <a href="{{ url_for('index') }}" class="btn-voltar">
             <i class="fa-solid fa-arrow-left"></i> Voltar para a página principal
         </a>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-cards">
             <div class="footer-card">
